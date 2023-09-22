@@ -15,4 +15,8 @@ class SeriesController extends Controller
 
         return view('series.index')->with('series', $series);
     }
+
+    public function create(Request $request) {
+        return view('series.create');
+    }
 }
