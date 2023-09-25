@@ -19,9 +19,8 @@ class SeriesController extends Controller
     }
 
     public function store(Request $request) {
-        //filter var / filter input
+        // Mass Assignment
         Serie::create($request->all());
-
         return redirect('/series');
     }
 }
