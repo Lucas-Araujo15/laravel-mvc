@@ -5,7 +5,6 @@
             <li>{{ $serie }}</li>
         @endforeach
     </ul>
-
     <script>
         const series = {{ Js::from($series) }}
     </script>
