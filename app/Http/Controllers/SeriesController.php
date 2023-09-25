@@ -20,11 +20,8 @@ class SeriesController extends Controller
 
     public function store(Request $request) {
         //filter var / filter input
-        $nomeSerie = $request->input('nome');
-        $serie = new Serie();
-        $serie->nome =  $nomeSerie;
+        Serie::create($request->all());
 
-        $serie->save();
         return redirect('/series');
     }
 }
