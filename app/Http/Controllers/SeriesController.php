@@ -29,4 +29,14 @@ class SeriesController extends Controller
         $series->delete();
         return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}' foi removida com sucesso");
     }
+
+    public function edit(Serie $series) {
+        return view('series.edit')->with('series', $series);
+    }
+
+    public function update(Request $request, Serie $series) {
+        $series->nome = $request->nome;
+        $series->save();
+        return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}' foi alterada com sucesso");
+    }
 }
