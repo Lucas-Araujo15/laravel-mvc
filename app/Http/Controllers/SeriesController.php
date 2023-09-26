@@ -22,15 +22,11 @@ class SeriesController extends Controller
     public function store(Request $request) {
         // Mass Assignment
         $serie = Serie::create($request->all());
-
-        $request->session()->flash('mensagem.sucesso', "Série '{$serie->nome}' foi adicionada com sucesso");
-        return to_route('series.index');
+        return to_route('series.index')->with('mensagem.sucesso', "Série '{$serie->nome}' foi adicionada com sucesso");
     }
 
-    public function destroy(Serie $series, Request $request) {
+    public function destroy(Serie $series) {
         $series->delete();
-        $request->session()->flash('mensagem.sucesso', "Série '{$series->nome}' foi removida com sucesso");
-
-        return to_route('series.index');
+        return to_route('series.index')->with('mensagem.sucesso', "Série '{$series->nome}' foi removida com sucesso");
     }
 }
